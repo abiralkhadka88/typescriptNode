@@ -26,12 +26,20 @@ server.listen(4000, () => {
 });
 
 function sendResponse(socket, body, statusCode) {
-  const response = `HTTP/1.1 ${statusCode} OK
-    Content-Type:image/jpeg
-    Content-Length: ${body.length}
+  // const response = `HTTP/1.1 ${statusCode} OK
+  //   Content-Type:image/jpeg
+  //   Content-Length: ${body.length}
 
-    ${body}
-    `;
+  //   ${body}
+  //   `;
+
+  const response = [
+    `HTTP/1.1 ${statusCode} OK`,
+    `Content-Type: text/plain`,
+    `Content-length: ${body.length}`,
+    "",
+    body,
+  ].join("\r\n");
 
   socket.write(response);
   socket.end();
