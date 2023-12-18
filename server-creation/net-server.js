@@ -34,7 +34,7 @@ function sendResponse(socket, body, statusCode) {
   //   `;
 
   const response = [
-    `HTTP/1.1 ${statusCode} OK`,
+    `HTTP/1.1 / ${statusCode} OK`,
     `Content-Type: text/plain`,
     `Content-length: ${body.length}`,
     "",
