@@ -6,6 +6,6 @@ const userRouter = express.Router();
 
 userRouter.post("/", userController.registerUser);
 userRouter.get("/", userController.findAllUsers);
-userRouter.get("/:id", [errorHandler], userController.getOneUser);
+userRouter.get("/:id", userController.getOneUser);
 
 export default userRouter;

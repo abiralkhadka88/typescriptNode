@@ -10,6 +10,8 @@ const app = express();
 
 app.use("/user", userRouter);
 
+app.use(errorHandler);
+
 AppDataSource.initialize()
   .then(() => {
     console.log("Data Source has been initialized!");
@@ -20,5 +22,3 @@ AppDataSource.initialize()
   .catch((err) => {
     console.error("Error during Data Source initialization", err);
   });
-
-app.use(errorHandler);

@@ -15,9 +15,16 @@ class UserController {
   }
 
   async getOneUser(req: Request, res: Response) {
-    const id = req.params.id;
-    const data = await UserService.findOne(id);
-    res.send(data);
+    try {
+      const id = req.params.id;
+      const data = await UserService.findOne(id);
+      res.send(data);
+    } catch (e: any) {
+      res.send({
+        status: "error",
+        message: e.message,
+      });
+    }
   }
 }
 

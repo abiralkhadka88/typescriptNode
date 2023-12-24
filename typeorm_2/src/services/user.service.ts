@@ -19,7 +19,7 @@ class UserService {
   }
 
   async findOne(id: string) {
-    const u = await User.find({
+    const u = await User.findOne({
       where: {
         id,
       },
